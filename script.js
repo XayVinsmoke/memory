@@ -1,4 +1,21 @@
 let cards = document.getElementsByClassName('card');
+let gameOverNode = document.getElementById('game-over');
+
+// initilisiere Liste mit Paaren
+let pairs = [];
+for (let i = 1; i <= cards.length / 2; i++) {
+    pairs.push('pair-' + i); 
+    pairs.push('pair-' + i); 
+}
+
+// mische Liste mit Paaren naiv
+pairs.sort((a, b) => 0.5 - Math.random());
+
+for (let i = 0; i < cards.length; i++) {
+    cards[i].classList.add(pairs.pop());
+}
+
+let turnCounter = 0;
 let counter = 0;
 let lock = false;
 let openCard = '';
@@ -27,13 +44,19 @@ for (let i = 0; i < cards.length; i++) {
             if (lock == false) {
                 // die erste Karte wurde geklickt
                 if (counter == 0) {
-                    openCard = element.target.classList[1];
+                    openCard = element.target.classList[2];
                     counter = counter + 1;
                 }
                 // die zweite Karte wurde geklickt
                 else {
-                    if (openCard == element.target.classList[1]) {
+                    turnCounter = turnCounter + 1; 
+                    if (openCard == element.target.classList[2]) {
+                        // foundPairs beinhaltet die gefunden Paare
                         foundPairs.push(openCard);
+                        // pruefe, ob foundPairs alle Paare beinhaltet
+                        if (foundPairs.length == cards.length / 2) {
+                            gameOverNode.innerHTML = "Game Over: You took " + turnCounter + " turns.";
+                        }
                     } else {
                         lock = true;
                         setTimeout(hideCards, 2000);
