@@ -8,11 +8,18 @@ for (let i = 1; i <= cards.length / 2; i++) {
     pairs.push('pair-' + i); 
 }
 
-// mische Liste mit Paaren naiv
-pairs.sort((a, b) => 0.5 - Math.random());
+// mische Karten
+pairs = pairs
+  .map((value) => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value);
+
+
+// pairs.sort((a, b) => 0.5 - Math.random()); // naives Mischen
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].classList.add(pairs.pop());
+    cards[i].classList.add('is-hidden');
 }
 
 let turnCounter = 0;
@@ -44,13 +51,14 @@ for (let i = 0; i < cards.length; i++) {
             if (lock == false) {
                 // die erste Karte wurde geklickt
                 if (counter == 0) {
-                    openCard = element.target.classList[2];
+                    console.log(foundPairs);
+                    openCard = element.target.classList[1];
                     counter = counter + 1;
                 }
                 // die zweite Karte wurde geklickt
                 else {
                     turnCounter = turnCounter + 1; 
-                    if (openCard == element.target.classList[2]) {
+                    if (openCard == element.target.classList[1]) {
                         // foundPairs beinhaltet die gefunden Paare
                         foundPairs.push(openCard);
                         // pruefe, ob foundPairs alle Paare beinhaltet
