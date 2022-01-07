@@ -1,13 +1,18 @@
+body {
+    background-color: #a21;
+}
 .card {
     display: inline-block;
     padding-bottom: 100%;
 
-    border: 2px solid black;
+    border: 3px solid black;
+    background-position: center center;
+    background-size: cover;
 }
 
 .card:hover {
+    opacity: 1;
     cursor: pointer;
-    border: 2px solid lightgrey;
 }
 
 .container {
@@ -20,33 +25,35 @@
 
 .is-center {
     text-align: center;
+    color: white;
 }
 
 .pair-1 {
-    background-color: orange;
+    background-image: url('./assets/card_front_1.jpg');
 }
 .pair-2 {
-    background-color: blue;
+    background-image: url('./assets/card_front_2.webp');
 }
 .pair-3 {
-    background-color: green;
+    background-image: url('./assets/card_front_3.webp');
 }
 .pair-4 {
-    background-color: red;
+    background-image: url('./assets/card_front_4.jpg');
 }
 .pair-5 {
-    background-color: brown;
+    background-image: url('./assets/card_front_5.jpeg');
 }
 .pair-6 {
-    background-color: magenta;
+    background-image: url('./assets/card_front_6.jpg');
 }
 .pair-7 {
-    background-color: purple;
+    background-image: url('./assets/card_front_7.jpg');
 }
 .pair-8 {
-    background-color: teal;
+    background-image: url('./assets/card_front_8.jpg');
 }
 
 .is-hidden {
-    background-color: grey;
+    background-image: url('./assets/card_back.jpg');
+    opacity: 0.9;
 }
