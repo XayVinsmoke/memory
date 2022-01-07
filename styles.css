@@ -1,0 +1,49 @@
+.card {
+    display: inline-block;
+    padding-bottom: 100%;
+
+    border: 2px solid black;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: 2px solid lightgrey;
+}
+
+.container {
+    display: grid;
+    max-width: 760px;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.pair-1 {
+    background-color: orange;
+}
+.pair-2 {
+    background-color: blue;
+}
+.pair-3 {
+    background-color: green;
+}
+.pair-4 {
+    background-color: red;
+}
+.pair-5 {
+    background-color: brown;
+}
+.pair-6 {
+    background-color: magenta;
+}
+.pair-7 {
+    background-color: purple;
+}
+.pair-8 {
+    background-color: teal;
+}
+
+.is-hidden {
+    background-color: grey;
+}
+
