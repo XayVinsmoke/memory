@@ -18,6 +18,10 @@
     grid-gap: 10px;
 }
 
+.is-center {
+    text-align: center;
+}
+
 .pair-1 {
     background-color: orange;
 }
@@ -46,4 +50,3 @@
 .is-hidden {
     background-color: grey;
 }
-
